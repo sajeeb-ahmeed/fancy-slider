@@ -87,3 +87,36 @@ const createSlider = () => {
 const changeItem = index => {
   changeSlide(slideIndex += index);
 }
+
+// change slide item
+const changeSlide = (index) => {
+
+  const items = document.querySelectorAll('.slider-item');
+  if (index < 0) {
+    slideIndex = items.length - 1
+    index = slideIndex;
+  };
+
+  if (index >= items.length) {
+    index = 0;
+    slideIndex = 0;
+  }
+
+  items.forEach(item => {
+    item.style.display = "none"
+  })
+
+  items[index].style.display = "block"
+}
+
+searchBtn.addEventListener('click', function () {
+  document.querySelector('.main').style.display = 'none';
+  clearInterval(timer);
+  const search = document.getElementById('search');
+  getImages(search.value)
+  sliders.length = 0;
+})
+
+sliderBtn.addEventListener('click', function () {
+  createSlider()
+})
