@@ -82,3 +82,8 @@ const createSlider = () => {
     changeSlide(slideIndex);
   }, duration);
 }
+
+// change slider index 
+const changeItem = index => {
+  changeSlide(slideIndex += index);
+}
