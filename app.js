@@ -68,6 +68,9 @@ const createSlider = () => {
   // hide image aria
   imagesArea.style.display = 'none';
   const duration = document.getElementById('duration').value || 2000;
+  if (duration < 0) {
+    return alert('Give a positive time')
+  }
   sliders.forEach(slide => {
     let item = document.createElement('div')
     item.className = "slider-item";
